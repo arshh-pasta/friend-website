@@ -1,0 +1,1073 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>A Little Something For You ❤️</title>
+
+    <style>
+
+        /* =========================
+           BASIC RESET
+        ========================= */
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+
+            font-family: Arial, sans-serif;
+
+            background:
+                radial-gradient(circle at top left,
+                #33204d,
+                transparent 40%),
+
+                radial-gradient(circle at bottom right,
+                #182d4d,
+                transparent 40%),
+
+                #0d0d16;
+
+            color: white;
+
+            overflow-x: hidden;
+        }
+
+
+        /* =========================
+           PAGE SYSTEM
+        ========================= */
+
+        .page {
+
+            min-height: 100vh;
+
+            display: none;
+
+            justify-content: center;
+            align-items: center;
+
+            flex-direction: column;
+
+            text-align: center;
+
+            padding: 30px;
+
+            position: relative;
+
+            animation: pageIn 0.8s ease;
+        }
+
+        .page.active {
+            display: flex;
+        }
+
+
+        @keyframes pageIn {
+
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+
+        /* =========================
+           TEXT
+        ========================= */
+
+        .small {
+
+            color: #d2a5ff;
+
+            font-size: 17px;
+
+            letter-spacing: 3px;
+
+            margin-bottom: 20px;
+        }
+
+
+        h1 {
+
+            font-size: clamp(42px, 7vw, 75px);
+
+            line-height: 1.05;
+
+            margin-bottom: 25px;
+        }
+
+
+        h1 span {
+
+            color: #d59aff;
+        }
+
+
+        .subtitle {
+
+            max-width: 650px;
+
+            color: #bdbdc8;
+
+            font-size: 19px;
+
+            line-height: 1.7;
+
+            margin-bottom: 35px;
+        }
+
+
+        /* =========================
+           BUTTON
+        ========================= */
+
+        .btn {
+
+            border: none;
+
+            padding: 16px 35px;
+
+            border-radius: 50px;
+
+            background: white;
+
+            color: #15151e;
+
+            font-size: 16px;
+
+            font-weight: bold;
+
+            cursor: pointer;
+
+            transition: 0.3s;
+
+            box-shadow:
+                0 10px 30px rgba(0,0,0,0.25);
+        }
+
+
+        .btn:hover {
+
+            transform: translateY(-5px) scale(1.05);
+
+            box-shadow:
+                0 15px 40px rgba(255,255,255,0.2);
+        }
+
+
+        /* =========================
+           GLOW
+        ========================= */
+
+        .glow {
+
+            position: absolute;
+
+            width: 300px;
+
+            height: 300px;
+
+            border-radius: 50%;
+
+            background: #b56cff;
+
+            filter: blur(120px);
+
+            opacity: 0.15;
+
+            z-index: -1;
+        }
+
+
+        .glow.one {
+
+            top: 10%;
+
+            left: 5%;
+        }
+
+
+        .glow.two {
+
+            bottom: 5%;
+
+            right: 5%;
+        }
+
+
+        /* =========================
+           FLOATING HEARTS
+        ========================= */
+
+        .heart {
+
+            position: fixed;
+
+            bottom: -50px;
+
+            font-size: 25px;
+
+            opacity: 0.7;
+
+            animation: heartFloat 8s linear infinite;
+
+            pointer-events: none;
+        }
+
+
+        @keyframes heartFloat {
+
+            0% {
+
+                transform:
+                    translateY(0)
+                    rotate(0deg);
+
+                opacity: 0;
+            }
+
+            20% {
+                opacity: 0.8;
+            }
+
+            100% {
+
+                transform:
+                    translateY(-110vh)
+                    rotate(360deg);
+
+                opacity: 0;
+            }
+        }
+
+
+        /* =========================
+           MESSAGE
+        ========================= */
+
+        .message-box {
+
+            max-width: 700px;
+
+            background: rgba(255,255,255,0.05);
+
+            border: 1px solid rgba(255,255,255,0.1);
+
+            border-radius: 25px;
+
+            padding: 35px;
+
+            margin-bottom: 35px;
+
+            backdrop-filter: blur(10px);
+
+            box-shadow:
+                0 20px 60px rgba(0,0,0,0.2);
+        }
+
+
+        .message-box p {
+
+            color: #d6d6df;
+
+            font-size: 18px;
+
+            line-height: 1.8;
+
+            margin-bottom: 15px;
+        }
+
+
+        .message-box p:last-child {
+            margin-bottom: 0;
+        }
+
+
+        /* =========================
+           MEMORIES
+        ========================= */
+
+        .memories {
+
+            display: flex;
+
+            gap: 25px;
+
+            flex-wrap: wrap;
+
+            justify-content: center;
+
+            margin-bottom: 40px;
+
+            max-width: 1000px;
+        }
+
+
+        .memory-card {
+
+            width: 260px;
+
+            background: rgba(255,255,255,0.06);
+
+            border: 1px solid rgba(255,255,255,0.1);
+
+            border-radius: 22px;
+
+            overflow: hidden;
+
+            transition: 0.4s;
+
+            backdrop-filter: blur(8px);
+        }
+
+
+        .memory-card:hover {
+
+            transform:
+                translateY(-12px)
+                rotate(1deg);
+
+            box-shadow:
+                0 20px 50px rgba(0,0,0,0.3);
+        }
+
+
+        .memory-card img {
+
+            width: 100%;
+
+            height: 250px;
+
+            object-fit: cover;
+
+            display: block;
+        }
+
+
+        .memory-text {
+
+            padding: 18px;
+        }
+
+
+        .memory-text h3 {
+
+            margin-bottom: 8px;
+        }
+
+
+        .memory-text p {
+
+            color: #aaaab6;
+
+            line-height: 1.5;
+        }
+
+
+        /* =========================
+           FINAL PAGE
+        ========================= */
+
+        .final-title {
+
+            font-size: clamp(38px, 6vw, 65px);
+        }
+
+
+        .video-container {
+
+            width: min(850px, 92vw);
+
+            border-radius: 25px;
+
+            overflow: hidden;
+
+            margin: 20px 0 30px;
+
+            background: black;
+
+            box-shadow:
+                0 20px 80px rgba(0,0,0,0.5);
+        }
+
+
+        video {
+
+            width: 100%;
+
+            display: block;
+        }
+
+
+        .ending {
+
+            color: #d3a0ff;
+
+            font-size: 19px;
+
+            margin-top: 10px;
+        }
+
+
+        /* =========================
+           MUSIC BUTTON
+        ========================= */
+
+        .music-btn {
+
+            position: fixed;
+
+            top: 20px;
+
+            right: 20px;
+
+            width: 50px;
+
+            height: 50px;
+
+            border-radius: 50%;
+
+            border: 1px solid rgba(255,255,255,0.2);
+
+            background: rgba(255,255,255,0.1);
+
+            color: white;
+
+            cursor: pointer;
+
+            backdrop-filter: blur(10px);
+
+            z-index: 100;
+
+            font-size: 20px;
+        }
+
+
+        /* =========================
+           PROGRESS DOTS
+        ========================= */
+
+        .dots {
+
+            position: fixed;
+
+            bottom: 20px;
+
+            left: 50%;
+
+            transform: translateX(-50%);
+
+            display: flex;
+
+            gap: 8px;
+
+            z-index: 50;
+        }
+
+
+        .dot {
+
+            width: 8px;
+
+            height: 8px;
+
+            border-radius: 50%;
+
+            background: #555;
+
+            transition: 0.3s;
+        }
+
+
+        .dot.active {
+
+            width: 25px;
+
+            border-radius: 10px;
+
+            background: #d19aff;
+        }
+
+
+        /* =========================
+           MOBILE
+        ========================= */
+
+        @media (max-width: 600px) {
+
+            .page {
+                padding: 25px 18px;
+            }
+
+
+            .message-box {
+                padding: 25px 20px;
+            }
+
+
+            .message-box p {
+                font-size: 16px;
+            }
+
+
+            .memory-card {
+                width: 90%;
+                max-width: 300px;
+            }
+
+
+            .memory-card img {
+                height: 300px;
+            }
+
+
+            .music-btn {
+
+                width: 45px;
+
+                height: 45px;
+
+                top: 15px;
+
+                right: 15px;
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+    <!-- =================================
+         FLOATING HEARTS
+    ================================== -->
+
+    <div class="heart" style="left:10%; animation-delay:0s;">❤️</div>
+    <div class="heart" style="left:25%; animation-delay:2s;">💜</div>
+    <div class="heart" style="left:45%; animation-delay:4s;">🤍</div>
+    <div class="heart" style="left:65%; animation-delay:1s;">💗</div>
+    <div class="heart" style="left:85%; animation-delay:3s;">✨</div>
+
+
+    <!-- =================================
+         MUSIC
+    ================================== -->
+
+    <button class="music-btn" onclick="toggleMusic()">
+
+        🎵
+
+    </button>
+
+
+    <!--
+        OPTIONAL MUSIC
+
+        Apni music file ka naam
+        music.mp3 rakh kar same folder
+        mein daal dena.
+
+        Example:
+
+        friend-website/
+        ├── index.html
+        ├── music.mp3
+        └── video.mp4
+    -->
+
+    <audio id="music" loop>
+
+        <source src="music.mp3" type="audio/mpeg">
+
+    </audio>
+
+
+    <!-- =================================
+         PAGE 1
+    ================================== -->
+
+    <section class="page active" id="page1">
+
+        <div class="glow one"></div>
+        <div class="glow two"></div>
+
+        <p class="small">
+            Hey shruti 👋
+        </p>
+
+
+        <h1>
+
+            I made something
+
+            <br>
+
+            <span>just for you ❤️</span>
+
+        </h1>
+
+
+        <p class="subtitle">
+
+            It's nothing huge...
+
+            <br>
+
+            Just a little something I wanted
+            you to see.
+
+        </p>
+
+
+        <button class="btn"
+                onclick="nextPage(2)">
+
+            Start the surprise →
+
+        </button>
+
+    </section>
+
+
+
+    <!-- =================================
+         PAGE 2
+    ================================== -->
+
+    <section class="page" id="page2">
+
+        <div class="glow one"></div>
+
+        <p class="small">
+            First of all
+        </p>
+
+
+        <h1>
+            Hey, it's okay babu 🌷
+        </h1>
+
+
+        <div class="message-box">
+
+            <p>
+
+                I know things haven't been
+                feeling the best lately.
+
+            </p>
+
+
+            <p>
+
+                And maybe I don't know
+                exactly what's going on
+
+            </p>
+
+
+            <p>
+
+                But you don't have to
+                pretend that everything
+                is perfect
+
+            </p>
+
+
+            <p>
+
+                you dont need to face everything alone i am with you shruti
+
+            </p>
+
+
+            <p>
+
+                And remember...
+
+                <strong>
+                    you're very strong
+                    than you think. ❤️
+                </strong>
+
+            </p>
+
+        </div>
+
+
+        <button class="btn"
+                onclick="nextPage(3)">
+
+            Continue →
+
+        </button>
+
+    </section>
+
+
+
+    <!-- =================================
+         PAGE 3
+    ================================== -->
+
+    <section class="page" id="page3">
+
+        <p class="small">
+            Some little memories 📸
+        </p>
+
+
+        <h1>
+            Just because... ✨
+        </h1>
+
+
+        <p class="subtitle">
+
+            In this image lies everything my heart has ever sought
+
+        </p>
+
+
+        <div class="memories">
+
+
+            <!-- MEMORY 1 -->
+
+            <div class="memory-card">
+
+                <!--
+                    Change photo1.jpg
+                    to your actual photo
+                -->
+
+                <img src="shruti(3).jpg"
+                     alt="Memory 1">
+
+                <div class="memory-text">
+
+                    <h3>
+                         I never get tired of you💙
+
+                    </h3>
+
+                    <p>
+                        Seeing you in a blue saree is all I could ever ask for 💙
+
+                    </p>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- MEMORY 2 -->
+
+            <div class="memory-card">
+
+                <img src="shruti(2).jpg"
+                     alt="Memory 2">
+
+                <div class="memory-text">
+
+                    <h3>
+                        One of my favourites ✨
+                    </h3>
+
+                    <p>
+                        Definitely worth
+                        remembering.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- MEMORY 3 -->
+
+            <div class="memory-card">
+
+                <img src="shruti (1).jpg"
+                     alt="Memory 3">
+
+                <div class="memory-text">
+
+                    <h3>
+                        And this one... 🫶
+                    </h3>
+
+                    <p>
+                        This one needed
+                        to be here.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+        </div>
+
+
+        <button class="btn"
+                onclick="nextPage(4)">
+
+            One last thing... →
+
+        </button>
+
+    </section>
+
+
+
+    <!-- =================================
+         PAGE 4
+    ================================== -->
+
+    <section class="page" id="page4">
+
+        <div class="glow two"></div>
+
+        <p class="small">
+            Okay... this is it 🎬
+        </p>
+
+
+        <h1 class="final-title">
+
+            Something
+
+            <span>
+                for you ❤️
+            </span>
+
+        </h1>
+
+
+        <p class="subtitle">
+
+            I spent some time making this...
+
+            <br>
+
+            ear buds use karna okay 
+
+        </p>
+
+
+        <div class="video-container">
+
+            <!--
+                IMPORTANT:
+
+                Apni edited video ka naam
+                "video.mp4" rakhna.
+
+                Aur index.html ke same folder
+                mein rakhna.
+
+                Example:
+
+                friend-website/
+                ├── index.html
+                ├── photo1.jpg
+                ├── photo2.jpg
+                ├── photo3.jpg
+                └── video.mp4
+            -->
+
+            <video controls>
+
+                <source src="shruti88.mp4"
+                        type="video/mp4">
+
+                Your browser does not
+                support video.
+
+            </video>
+
+        </div>
+
+
+        <p class="ending">
+
+            Hope this made you smile. ❤️
+
+        </p>
+
+    </section>
+
+
+
+    <!-- =================================
+         PAGE DOTS
+    ================================== -->
+
+    <div class="dots">
+
+        <div class="dot active"
+             id="dot1"></div>
+
+        <div class="dot"
+             id="dot2"></div>
+
+        <div class="dot"
+             id="dot3"></div>
+
+        <div class="dot"
+             id="dot4"></div>
+
+    </div>
+
+
+
+    <!-- =================================
+         JAVASCRIPT
+    ================================== -->
+
+    <script>
+
+
+        /* =========================
+           PAGE CHANGE
+        ========================= */
+
+        function nextPage(pageNumber) {
+
+
+            // Current page find karo
+
+            const currentPage =
+                document.querySelector(".page.active");
+
+
+            // Current page hide karo
+
+            currentPage.classList.remove("active");
+
+
+            // New page show karo
+
+            const newPage =
+                document.getElementById(
+                    "page" + pageNumber
+                );
+
+
+            newPage.classList.add("active");
+
+
+            // Progress dots update karo
+
+            updateDots(pageNumber);
+
+
+            // Page ke top par le jao
+
+            window.scrollTo({
+                top: 0,
+                behavior: "smooth"
+            });
+
+        }
+
+
+
+        /* =========================
+           DOT UPDATE
+        ========================= */
+
+        function updateDots(pageNumber) {
+
+
+            // Saare dots
+
+            const dots =
+                document.querySelectorAll(".dot");
+
+
+            // Sab inactive
+
+            dots.forEach(function(dot) {
+
+                dot.classList.remove("active");
+
+            });
+
+
+            // Current active
+
+            document
+                .getElementById("dot" + pageNumber)
+                .classList.add("active");
+
+        }
+
+
+
+        /* =========================
+           MUSIC
+        ========================= */
+
+        let musicPlaying = false;
+
+
+        function toggleMusic() {
+
+
+            const music =
+                document.getElementById("music");
+
+
+            if (!musicPlaying) {
+
+                music.play();
+
+                musicPlaying = true;
+
+            }
+
+            else {
+
+                music.pause();
+
+                musicPlaying = false;
+
+            }
+
+        }
+
+
+    </script>
+
+
+</body>
+
+</html>
